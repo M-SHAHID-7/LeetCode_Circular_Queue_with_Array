@@ -1,0 +1,191 @@
+class MyCircularQueue {
+public:
+    int front ;
+    int rare ;
+    int MAX_SIZE;
+    vector<int > arr;
+    MyCircularQueue(int k) 
+    {
+        front = rare = -1 ;
+        arr.resize(k);
+       MAX_SIZE = k;
+        
+    }
+    
+    bool enQueue(int value) {
+        if(isFull())
+        {
+            return false;
+        }
+        if(isEmpty())
+        {
+            front ++ ;
+        }
+        rare =( rare + 1 ) % MAX_SIZE;
+        arr[rare]= value;
+        return true;
+    }
+    
+    bool deQueue() 
+    {
+       if(isEmpty())
+       {
+           return false;
+       }
+        if ( front == rare )
+        {
+            front = -1;
+            rare = -1;
+            return true;
+        }
+        front = (front + 1) % MAX_SIZE;
+        return true;
+        
+    }
+    
+    int Front() 
+    {
+        if(front > -1 )
+        {
+    return arr[front] ;   
+        }
+           return -1;
+    }
+ 
+    int Rear()
+    {
+        if(rare > -1 )
+        return arr[rare];
+        else
+            return -1;
+    }
+    
+    bool isEmpty() 
+    {
+    if( front == -1)   
+    {
+        return  true;
+    }
+    else
+    {
+        return false;
+     }
+    }
+    
+    bool isFull() 
+    {
+        if((front == 0 && rare == MAX_SIZE -1) || front == rare + 1)
+        {
+            return true;
+        }
+        else
+            return false;
+        
+    }
+};
+
+/**
+ * Your MyCircularQueue object will be instantiated and called as such:
+ * MyCircularQueue* obj = new MyCircularQueue(k);
+ * bool param_1 = obj->enQueue(value);
+ * bool param_2 = obj->deQueue();
+ * int param_3 = obj->Front();
+ * int param_4 = obj->Rear();
+ * bool param_5 = obj->isEmpty();
+ * bool param_6 = obj->isFull();
+ */class MyCircularQueue {
+public:
+    int front ;
+    int rare ;
+    int MAX_SIZE;
+    vector<int > arr;
+    MyCircularQueue(int k) 
+    {
+        front = rare = -1 ;
+        arr.resize(k);
+       MAX_SIZE = k;
+        
+    }
+    
+    bool enQueue(int value) {
+        if(isFull())
+        {
+            return false;
+        }
+        if(isEmpty())
+        {
+            front ++ ;
+        }
+        rare =( rare + 1 ) % MAX_SIZE;
+        arr[rare]= value;
+        return true;
+    }
+    
+    bool deQueue() 
+    {
+       if(isEmpty())
+       {
+           return false;
+       }
+        if ( front == rare )
+        {
+            front = -1;
+            rare = -1;
+            return true;
+        }
+        front = (front + 1) % MAX_SIZE;
+        return true;
+        
+    }
+    
+    int Front() 
+    {
+        if(front > -1 )
+        {
+    return arr[front] ;   
+        }
+           return -1;
+    }
+ 
+    int Rear()
+    {
+        if(rare > -1 )
+        return arr[rare];
+        else
+            return -1;
+    }
+    
+    bool isEmpty() 
+    {
+    if( front == -1)   
+    {
+        return  true;
+    }
+    else
+    {
+        return false;
+     }
+    }
+    
+    bool isFull() 
+    {
+        if((front == 0 && rare == MAX_SIZE -1) || front == rare + 1)
+        {
+            return true;
+        }
+        else
+            return false;
+        
+    }
+};
+
+/**
+ * Your MyCircularQueue object will be instantiated and called as such:
+ * MyCircularQueue* obj = new MyCircularQueue(k);
+ * bool param_1 = obj->enQueue(value);
+ * bool param_2 = obj->deQueue();
+ * int param_3 = obj->Front();
+ * int param_4 = obj->Rear();
+ * bool param_5 = obj->isEmpty();
+ * bool param_6 = obj->isFull();
+ */
